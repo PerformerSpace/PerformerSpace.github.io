@@ -2015,7 +2015,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0e7ed2;
+  background: #968bff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2853,10 +2853,36 @@ embed {
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
 }
+body {
+  background: url("https://source.unsplash.com/random/1600x900");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+.main-inner {
+  margin-top: 60px;
+  padding: 60px 60px 60px 60px;
+  background: #fff;
+  opacity: 0.95;
+  min-height: 500px;
+}
 .post {
   margin-top: 60px;
   margin-bottom: 60px;
   padding: 25px;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+.header-inner {
+  width: 800px;
+  margin-top: 80px;
+  height: 200px;
+  padding: 30px 0px 0px 0px;
+  background: #fff;
+  opacity: 0.8;
+  min-height: 100px;
+}
+.header {
+  height: 300px;
 }
