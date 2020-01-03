@@ -2015,7 +2015,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bad7f1;
+  background: #9ca4e3;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3089,7 +3089,7 @@ hr {
 }
 .footer-inner {
   margin: 0 auto;
-  text-align: left;
+  text-align: center;
 }
 @media (max-width: 767px) {
   .footer-inner {
