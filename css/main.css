@@ -2015,7 +2015,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fe66cb;
+  background: #3018ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2965,11 +2965,13 @@ hr {
   margin-top: 0;
 }
 .posts-expand .post-meta {
+  text-align: center;
   margin-top: 5px;
   margin-bottom: 20px;
 }
 .posts-expand .post-title {
   position: relative;
+  text-align: center;
   font-size: 26px;
   font-weight: 400;
 }

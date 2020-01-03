@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.fatyao.top/"/>
-  <updated>2020-01-02T11:59:52.153Z</updated>
+  <updated>2020-01-03T08:40:16.102Z</updated>
   <id>https://www.fatyao.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>呵呵呵呵呵呵</title>
+    <link href="https://www.fatyao.top/a.html"/>
+    <id>https://www.fatyao.top/a.html</id>
+    <published>2020-01-03T08:37:51.000Z</published>
+    <updated>2020-01-03T08:40:16.102Z</updated>
+    
+    <content type="html"><![CDATA[<p>哈哈哈哈</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;哈哈哈哈&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
