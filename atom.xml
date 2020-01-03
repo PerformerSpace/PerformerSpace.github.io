@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.fatyao.top/"/>
-  <updated>2020-01-03T08:40:16.102Z</updated>
+  <updated>2020-01-03T09:01:40.362Z</updated>
   <id>https://www.fatyao.top/</id>
   
   <author>
@@ -17,51 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>呵呵呵呵呵呵</title>
-    <link href="https://www.fatyao.top/a.html"/>
-    <id>https://www.fatyao.top/a.html</id>
-    <published>2020-01-03T08:37:51.000Z</published>
-    <updated>2020-01-03T08:40:16.102Z</updated>
+    <title>Vue项目中的吸顶效果</title>
+    <link href="https://www.fatyao.top/vue-ceiling.html"/>
+    <id>https://www.fatyao.top/vue-ceiling.html</id>
+    <published>2020-01-03T08:52:44.000Z</published>
+    <updated>2020-01-03T09:01:40.362Z</updated>
     
-    <content type="html"><![CDATA[<p>哈哈哈哈</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="step1-给选择的元素标签绑定样式-如下"><a href="#step1-给选择的元素标签绑定样式-如下" class="headerlink" title="step1:给选择的元素标签绑定样式,如下:"></a>step1:给选择的元素标签绑定样式,如下:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ref&#x3D;&quot;showDays&quot; :class&#x3D;&quot;headerFixed?&#39;issFixed&#39;:&#39;&#39;&quot;&gt;</span><br><span class="line">    &lt;ul id&#x3D;&quot;timeline&quot; class&#x3D;&quot;mb-line-b&quot; v-if&#x3D;&quot;movie.showDays&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;li data-day&#x3D;&quot;2019-01-03&quot;  </span><br><span class="line">        v-for&#x3D;&quot;(item,index) in movie.showDays.dates&quot; </span><br><span class="line">        class&#x3D;&quot;showDay&quot; </span><br><span class="line">        :class&#x3D;&quot;&#123;chosen:selectDayIndex&#x3D;&#x3D;index&#125;&quot;  </span><br><span class="line">        @click&#x3D;&quot;dealClickDay(item,index)&quot;&gt;</span><br><span class="line">            &#123;&#123;item.date&#125;&#125;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure><h2 id="step2-在script标签中添加如下"><a href="#step2-在script标签中添加如下" class="headerlink" title="step2:在script标签中添加如下:"></a>step2:在script标签中添加如下:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">定义:headerFixed: 0,</span><br><span class="line">1</span><br></pre></td></tr></table></figure><h2 id="step3-在script标签中添加如下"><a href="#step3-在script标签中添加如下" class="headerlink" title="step3:在script标签中添加如下:"></a>step3:在script标签中添加如下:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    mounted() &#123;</span><br><span class="line">    &#x2F;&#x2F; 监听dom渲染完成</span><br><span class="line">    this.$nextTick(function() &#123;</span><br><span class="line">      &#x2F;&#x2F; 这里fixedHeaderRoot是吸顶元素的ID</span><br><span class="line">      const header &#x3D; this.$refs.showDays</span><br><span class="line">      &#x2F;&#x2F; 这里要得到top的距离和元素自身的高度</span><br><span class="line">      this.offsetTop &#x3D; header.offsetTop</span><br><span class="line">      this.offsetHeight &#x3D; header.offsetHeight</span><br><span class="line">      console.log(&#39;offsetTop:&#39; + this.offsetTop + &#39;,&#39; + this.offsetHeight)</span><br><span class="line">    &#125;)</span><br><span class="line">    &#x2F;&#x2F; handleScroll为页面滚动的监听回调</span><br><span class="line">    window.addEventListener(&#39;scroll&#39;, this.handleScroll)</span><br><span class="line">  &#125;,</span><br><span class="line">  destroyed() &#123;</span><br><span class="line">    window.removeEventListener(&#39;scroll&#39;, this.handleScroll)</span><br><span class="line">  &#125;,</span><br><span class="line">    methods: &#123;      </span><br><span class="line">    &#x2F;&#x2F; 搜素框吸顶方法</span><br><span class="line">    handleScroll() &#123;</span><br><span class="line">      &#x2F;&#x2F; 得到页面滚动的距离</span><br><span class="line">      const scrollTop &#x3D; window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop</span><br><span class="line">      &#x2F;&#x2F; 判断页面滚动的距离是否大于吸顶元素的位置</span><br><span class="line">      this.headerFixed &#x3D; scrollTop &gt; (this.offsetTop - this.offsetHeight * 2)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure><h2 id="step4-在style标签中添加样式如下"><a href="#step4-在style标签中添加样式如下" class="headerlink" title="step4:在style标签中添加样式如下:"></a>step4:在style标签中添加样式如下:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">.issFixed&#123;</span><br><span class="line">    position: fixed;</span><br><span class="line">    top:65px;</span><br><span class="line">    left:200px;</span><br><span class="line">    right:0px;</span><br><span class="line">    z-index: 4;</span><br><span class="line">  &#125; </span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;哈哈哈哈&lt;/p&gt;
-
+        &lt;h2 id=&quot;step1-给选择的元素标签绑定样式-如下&quot;&gt;&lt;a href=&quot;#step1-给选择的元素标签绑定样式-如下&quot; class=&quot;headerlink&quot; title=&quot;step1:给选择的元素标签绑定样式,如下:&quot;&gt;&lt;/a&gt;step1:给选择的元素标签绑定样式,如下:
       
     
     </summary>
     
     
     
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://www.fatyao.top/hello-world.html"/>
-    <id>https://www.fatyao.top/hello-world.html</id>
-    <published>2019-12-27T09:07:08.121Z</published>
-    <updated>2020-01-02T11:59:52.153Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-    
-    
-      <category term="hexo" scheme="https://www.fatyao.top/tags/hexo/"/>
-    
-      <category term="hello" scheme="https://www.fatyao.top/tags/hello/"/>
+      <category term="vue" scheme="https://www.fatyao.top/tags/vue/"/>
     
   </entry>
   
