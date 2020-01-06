@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.fatyao.top/"/>
-  <updated>2020-01-03T09:57:41.606Z</updated>
+  <updated>2020-01-06T02:20:13.702Z</updated>
   <id>https://www.fatyao.top/</id>
   
   <author>
@@ -15,6 +15,93 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexoblog3</title>
+    <link href="https://www.fatyao.top/hexoblog3.html"/>
+    <id>https://www.fatyao.top/hexoblog3.html</id>
+    <published>2020-01-06T02:20:13.000Z</published>
+    <updated>2020-01-06T02:20:13.702Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hexoblog2</title>
+    <link href="https://www.fatyao.top/hexoblog2.html"/>
+    <id>https://www.fatyao.top/hexoblog2.html</id>
+    <published>2020-01-06T02:20:05.000Z</published>
+    <updated>2020-01-06T02:20:05.232Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于Hexo6.0搭建个人博客(基础编)</title>
+    <link href="https://www.fatyao.top/hexoblog1.html"/>
+    <id>https://www.fatyao.top/hexoblog1.html</id>
+    <published>2020-01-06T02:16:01.000Z</published>
+    <updated>2020-01-06T02:21:26.488Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>初识Hexo</p></blockquote><h1 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo?"></a><code>什么是Hexo?</code></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hexo&#96;是一个快速，简单而强大的博客框架。您可以使用[Markdown](http:&#x2F;&#x2F;daringfireball.net&#x2F;projects&#x2F;markdown&#x2F;)（或其他语言）编写文章，Hexo可以在几秒钟内生成具有美丽主题的静态文件。</span><br><span class="line">对的,就是这么简单明了,其实就是一个搭建博客的工具而已,也不是什么高深莫测的东西,接下来我将带着大家一步步徒手搭建属于自己的博客.&#96;说明:(这里说的搭建属于自己的博客,并不是指搭建属于自己的独一无二的博客,那是前端的本事了,我们这里只说最基本的)</span><br></pre></td></tr></table></figure><h1 id="1-安装Hexo"><a href="#1-安装Hexo" class="headerlink" title="1.安装Hexo"></a>1.安装Hexo</h1><p>建立Hexo只需要几分钟,安装Hexo非常简单。但是，您首先需要安装其他一些东西.</p><ul><li><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a></li><li><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a></li></ul><p>如果你的电脑已经有这些，祝贺！只需使用npm安装Hexo：</p><blockquote><p>$ npm install -g hexo-cli</p></blockquote><p>如果没有,那就一起来看下面吧(<code>这里只说windows的安装,因为本人太穷,买不起mac啊o(╥﹏╥)o</code>)</p><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>![img](file:///C:\Users\EDZ\Documents\My Knowledge\temp\9b2bceb3-bd81-4507-916d-7cdac83ebcbb\128\index_files\0.6674135620953223.png)</p><p>安装git.png</p><ul><li>Windows：下载并安装<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git</a>。<br>一切按照默认走就行了,没什么特殊的地方.</li></ul><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>![img](file:///C:\Users\EDZ\Documents\My Knowledge\temp\9b2bceb3-bd81-4507-916d-7cdac83ebcbb\128\index_files\0.2894859070930844.png)</p><p>Nodejs安装.png</p><p>我们这里简单点,直接下载并运行<a href="http://nodejs.org/" target="_blank" rel="noopener">安装程序</a>就完了.<br>还是走默认就行.</p><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>一旦安装了所有需求，就可以用npm安装Hexo：</p><blockquote><p>$ npm install -g hexo-cli</p></blockquote><p>随便找个地方, <code>Git Bash -&gt;$ npm install -g hexo-cli</code> 就行了<br>我这里直接在桌面上GitBash</p><p>![img](file:///C:\Users\EDZ\Documents\My Knowledge\temp\9b2bceb3-bd81-4507-916d-7cdac83ebcbb\128\index_files\0.3810505627184424.png)</p><p>GitBash.png</p><p>如果出现以下就说明安装成功了</p><p>![img](file:///C:\Users\EDZ\Documents\My Knowledge\temp\9b2bceb3-bd81-4507-916d-7cdac83ebcbb\128\index_files\0.5377815696025627.png)</p><p>success.png</p><blockquote><p>好了,到这里我们就算是已经成功完成了第一步:<code>安装Hexo</code></p></blockquote><h1 id="2-利用Hexo初始化我们的站点跟目录-文件"><a href="#2-利用Hexo初始化我们的站点跟目录-文件" class="headerlink" title="2.利用Hexo初始化我们的站点跟目录(文件)"></a>2.利用Hexo初始化我们的站点跟目录(文件)</h1><blockquote><p>$ hexo init &lt;文件夹&gt;<br>$ cd &lt;文件夹&gt;<br>$ npm install</p></blockquote><p>选择你想要的盘符来建立我们的博客站点文件,我这里选择D:/</p><p>![img](file:///C:\Users\EDZ\Documents\My Knowledge\temp\9b2bceb3-bd81-4507-916d-7cdac83ebcbb\128\index_files\0.3397821710803106.png)</p><p>init.png</p><p>这里的 </p><p>![img](file:///C:\Users\EDZ\Documents\My Knowledge\temp\9b2bceb3-bd81-4507-916d-7cdac83ebcbb\128\index_files\0.5771749319173929.png)</p><p>successHexo.png</p><p>然后 初始化<code>$ npm install</code></p><p>![img](file:///C:\Users\EDZ\Documents\My Knowledge\temp\9b2bceb3-bd81-4507-916d-7cdac83ebcbb\128\index_files\0.9390720786977875.png)</p><p>install.png</p><p>ok了,看看你的blog文件是不是这样的,是的话就对了</p><p>![img](file:///C:\Users\EDZ\Documents\My Knowledge\temp\9b2bceb3-bd81-4507-916d-7cdac83ebcbb\128\index_files\0.5966945316684209.png)</p><p>blog.png</p><p>然后在介绍两个命令 ,以后经常要用到的</p><blockquote><p>hexo generate（可简写为hexo g）<br>hexo sever（可简写为hexo s）<br>hexo clean</p></blockquote><p><code>hexo g</code>: 编译,生成静态文件,也就是public文件夹的东西<br><code>hexo s</code>: 开启本地服务(以上两步的操作可以合并成hexo s -g)<br><code>hexo&#39; clean</code>:顾名思义就是清除缓存的意思了啦,这招一般在你改动之后网站没有变化时候用.</p><p>接下来看看 你博客的初步成果吧.<br>进入blog文件根目录:<br><code>Git Bash -&gt;$ hexo g</code><br><code>$ hexo s</code></p><p>![img](file:///C:\Users\EDZ\Documents\My Knowledge\temp\9b2bceb3-bd81-4507-916d-7cdac83ebcbb\128\index_files\0.3367654188367699.png)</p><p>hexo g.png</p><p>![img](file:///C:\Users\EDZ\Documents\My Knowledge\temp\9b2bceb3-bd81-4507-916d-7cdac83ebcbb\128\index_files\0.41841966641377315.png)</p><p>localhost.png</p><p>然后在你的浏览器输入<code>http://localhost:4000</code>,查看你的博客.</p><p>![img](file:///C:\Users\EDZ\Documents\My Knowledge\temp\9b2bceb3-bd81-4507-916d-7cdac83ebcbb\128\index_files\0.1642541763982559.png)</p><p>Myblog.png</p><blockquote><p>到此为止,你的个人博客就已经搭建完成了,是不是很简单</p></blockquote><p>好了,关于怎么用Hexo搭建个人博客站点就介绍到这里了,后面我还会继续介绍<a href="">关于Hexo<br>的主题优化</a>,[搭建漂亮的博客]、<code>利用Markdown写出第一遍博文</code>、<code>SEO优化等等一系列的教程</code>,希望能够帮到更多的小伙伴.<br>1.<a href="https://www.jianshu.com/p/043a4ae7684d">关于Hexo6.0搭建个人博客(进阶篇)</a><br>2.<a href="https://www.jianshu.com/p/52753aafd478" target="_blank" rel="noopener">关于Hexo6.0搭建个人博客(高级篇)</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;初识Hexo&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;什么是Hexo&quot;&gt;&lt;a href=&quot;#什么是Hexo&quot; class=&quot;headerlink&quot; title=&quot;什么是Hexo?&quot;&gt;&lt;/a&gt;&lt;code&gt;什么是Hexo?&lt;/code&gt;&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://www.fatyao.top/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://www.fatyao.top/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>npm镜像源管理</title>
+    <link href="https://www.fatyao.top/npmmirror.html"/>
+    <id>https://www.fatyao.top/npmmirror.html</id>
+    <published>2020-01-06T02:02:49.000Z</published>
+    <updated>2020-01-06T02:08:04.320Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="npm镜像源管理"><a href="#npm镜像源管理" class="headerlink" title="npm镜像源管理"></a>npm镜像源管理</h1><p>此文列出常见npm命令，大家共勉。<br>1、查看npm源地址<br><code>npm config list</code></p><p>结果:<br><code>metrics-registry = &quot;http://registry.npm.taobao.org/&quot;</code></p><p>2、修改registry地址，比如修改为淘宝镜像源。<br><code>npm set registry https://registry.npm.taobao.org/</code><br>如果有一天你肉身FQ到国外，用不上了，用rm命令删掉它<br><code>npm config rm registry</code></p><p>3、nrm是专门用来管理和快速切换私人配置的registry<br>建议全局安装<br><code>npm install nrm -g --save</code><br>用nrm ls命令查看默认配置，带*号即为当前使用的配置<br><code>nrm ls</code></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> npm ---- https:<span class="comment">//registry.npmjs.org/</span></span><br><span class="line">  cnpm --- http:<span class="comment">//r.cnpmjs.org/</span></span><br><span class="line">* taobao - https:<span class="comment">//registry.npm.taobao.org/</span></span><br><span class="line">  nj ----- https:<span class="comment">//registry.nodejitsu.com/</span></span><br><span class="line">  rednpm - http:<span class="comment">//registry.mirror.cqupt.edu.cn/</span></span><br><span class="line">  npmMirror  https:<span class="comment">//skimdb.npmjs.com/registry/</span></span><br><span class="line">  edunpm - http:<span class="comment">//registry.enpmjs.org/</span></span><br></pre></td></tr></table></figure><p>也可以直接输入以下命令查看当前使用的是哪个源<br><code>nrm current</code><br>切换源<br><code>nrm use cnpm</code><br>用nrm add 命令添加公司私有npm源，如<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fregistry.npm.360.org()随便写的" target="_blank" rel="noopener">http://registry.npm.360.org(</a>，起个别名叫qihoo<br><code>nrm add qihoo http://registry.npm.360.org</code></p><p>测试下速度<br><code>nrm test npm</code><br>输出<code>npm ---- 790ms</code></p><p>最后，如果你被公司开除了，怒删公司npm源配置<br><code>nrm del qihoo</code></p><h4 id="4、更新Node版本和npm版本"><a href="#4、更新Node版本和npm版本" class="headerlink" title="4、更新Node版本和npm版本"></a>4、更新<code>Node</code>版本和<code>npm</code>版本</h4><h5 id="清除node的cache（清除node的缓存，这个看情况而定，不是必须的）"><a href="#清除node的cache（清除node的缓存，这个看情况而定，不是必须的）" class="headerlink" title="清除node的cache（清除node的缓存，这个看情况而定，不是必须的）"></a>清除node的cache（清除node的缓存，这个看情况而定，不是必须的）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm cache clean -f</span><br></pre></td></tr></table></figure><h5 id="安装”n”版本管理工具，管理node（没有错，就是n）"><a href="#安装”n”版本管理工具，管理node（没有错，就是n）" class="headerlink" title="安装”n”版本管理工具，管理node（没有错，就是n）"></a>安装”n”版本管理工具，管理node（没有错，就是n）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g n</span><br></pre></td></tr></table></figure><h5 id="更新node版本"><a href="#更新node版本" class="headerlink" title="更新node版本"></a>更新node版本</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">npm</span> <span class="selector-tag">install</span> <span class="selector-tag">npm</span><span class="keyword">@latest</span> -g</span><br></pre></td></tr></table></figure><h5 id="再查一遍本机当前Node和npm的版本吧"><a href="#再查一遍本机当前Node和npm的版本吧" class="headerlink" title="再查一遍本机当前Node和npm的版本吧"></a>再查一遍本机当前Node和npm的版本吧</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v </span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure><p>参考: <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.cnblogs.com%2Fwangmeijian%2Fp%2F7072053.html" target="_blank" rel="noopener">https://www.cnblogs.com/wangmeijian/p/7072053.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;npm镜像源管理&quot;&gt;&lt;a href=&quot;#npm镜像源管理&quot; class=&quot;headerlink&quot; title=&quot;npm镜像源管理&quot;&gt;&lt;/a&gt;npm镜像源管理&lt;/h1&gt;&lt;p&gt;此文列出常见npm命令，大家共勉。&lt;br&gt;1、查看npm源地址&lt;br&gt;&lt;code&gt;npm c
+      
+    
+    </summary>
+    
+    
+      <category term="npm" scheme="https://www.fatyao.top/categories/npm/"/>
+    
+    
+      <category term="npm" scheme="https://www.fatyao.top/tags/npm/"/>
+    
+      <category term="镜像源管理" scheme="https://www.fatyao.top/tags/%E9%95%9C%E5%83%8F%E6%BA%90%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue项目中的吸顶效果</title>
