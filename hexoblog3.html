@@ -1,4 +1,1231 @@
-<!DOCTYPE html><html class="theme-next mist use-motion" lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4"><link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222"><meta name="keywords" content="hexo,"><link rel="alternate" href="/atom.xml" title="Yaoyao的博客" type="application/atom+xml"><meta name="description" content="关于Hexo6.0搭建个人博客(主题优化高级篇) 本篇博文将继续带大家深入文章效果优化,教你打造炫酷的个人博客站点.  阅读本文前建议先行阅读本人另外两篇遍基础博文1.关于Hexo6.0搭建个人博客(基础篇)2.关于Hexo6.0搭建个人博客(进阶篇) 目录 优化博客文章样式 修改文章内链接文本样式 修改文章底部的的标签样式 在每篇文章末尾统一添加“本文结束”标记 实现文章字数统计和阅读预估时间"><meta property="og:type" content="article"><meta property="og:title" content="关于Hexo6.0搭建个人博客(主题优化高级篇)"><meta property="og:url" content="https://www.fatyao.top/hexoblog3.html"><meta property="og:site_name" content="Yaoyao的博客"><meta property="og:description" content="关于Hexo6.0搭建个人博客(主题优化高级篇) 本篇博文将继续带大家深入文章效果优化,教你打造炫酷的个人博客站点.  阅读本文前建议先行阅读本人另外两篇遍基础博文1.关于Hexo6.0搭建个人博客(基础篇)2.关于Hexo6.0搭建个人博客(进阶篇) 目录 优化博客文章样式 修改文章内链接文本样式 修改文章底部的的标签样式 在每篇文章末尾统一添加“本文结束”标记 实现文章字数统计和阅读预估时间"><meta property="og:image" content="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/timg%20%285%29.jpg"><meta property="article:published_time" content="2020-01-06T02:20:13.000Z"><meta property="article:modified_time" content="2020-01-07T05:44:19.321Z"><meta property="article:author" content="Yaoyao.Li"><meta property="article:tag" content="hexo"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/timg%20%285%29.jpg"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",version:"5.1.4",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!0,onmobile:!1},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://www.fatyao.top/hexoblog3.html"><script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script><link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet"><script></script><title>关于Hexo6.0搭建个人博客(主题优化高级篇) | Yaoyao的博客</title><meta name="generator" content="Hexo 4.2.0"></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Yaoyao的博客</span><span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">山不过来 | 我就过去</p></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br> 首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br> 分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> 标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br> 归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br> 关于</a></li><li class="menu-item menu-item-message"><a href="/message/%20" rel="section"><i class="menu-item-icon fa fa-fw fa-heart"></i><br> 留言板</a></li><li class="menu-item menu-item-photo"><a href="/photo/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i><br> 摄影</a></li><li class="menu-item menu-item-music"><a href="/music/" rel="section"><i class="menu-item-icon fa fa-fw fa-music"></i><br> 音乐</a></li><li class="menu-item menu-item-welfare"><a href="/welfare/" rel="section"><i class="menu-item-icon fa fa-fw fa-leaf"></i><br> 福利</a></li><li class="menu-item menu-item-book"><a href="/book/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i><br> 书单</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br> 搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://www.fatyao.top/hexoblog3.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="Yaoyao.Li"><meta itemprop="description" content=""><meta itemprop="image" content="/images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="Yaoyao的博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">关于Hexo6.0搭建个人博客(主题优化高级篇)</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-06T10:20:13+08:00">2020-01-06</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span></span> <span class="post-meta-divider">|</span><span class="page-pv"><i class="fa fa-eye"></i> 浏览<span class="busuanzi-value" id="busuanzi_value_page_pv"></span> 次</span><div class="post-wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span> <span class="post-meta-item-text">字数统计&#58;</span> <span title="字数统计">2.5k</span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-clock-o"></i></span> <span class="post-meta-item-text">阅读时长 &asymp;</span> <span title="阅读时长">11</span></div></div></header><div class="post-body" itemprop="articleBody"><div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery"><div class="post-gallery-row"> <a class="post-gallery-img fancybox" href="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/timg%20%285%29.jpg" rel="gallery_ck53g9399000l1svreeb4356u" itemscope itemtype="http://schema.org/ImageObject" itemprop="url"><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/timg%20%285%29.jpg" itemprop="contentUrl"></a></div></div><h1 id="关于Hexo6-0搭建个人博客-主题优化高级篇"><a href="#关于Hexo6-0搭建个人博客-主题优化高级篇" class="headerlink" title="关于Hexo6.0搭建个人博客(主题优化高级篇)"></a>关于Hexo6.0搭建个人博客(主题优化高级篇)</h1><blockquote><p>本篇博文将继续带大家深入文章效果优化,教你打造炫酷的个人博客站点.</p></blockquote><p>阅读本文前建议先行阅读本人另外两篇遍基础博文<br>1.<a href="http://www.fatyao.top/hexoblog1.html">关于Hexo6.0搭建个人博客(基础篇)</a><br>2.<a href="http://www.fatyao.top/hexoblog2.html">关于Hexo6.0搭建个人博客(进阶篇)</a></p><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul><li>优化博客文章样式<ul><li>修改文章内链接文本样式</li><li>修改文章底部的的标签样式</li><li>在每篇文章末尾统一添加“本文结束”标记</li><li>实现文章字数统计和阅读预估时间</li><li>在文章底部增加版权信息</li><li>文章加密访问</li><li>将博文置顶</li><li>开启文章底部打赏功能</li><li>开启留言评论功能</li></ul></li></ul><h1 id="1-修改文章内链接文本样式"><a href="#1-修改文章内链接文本样式" class="headerlink" title="1.修改文章内链接文本样式"></a>1.修改文章内链接文本样式</h1><p>打开文件<code>themes\next\source\css\_common\components\post\post.styl</code>，在末尾添加以下css样式:</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文章内链接文本样式</span></span><br><span class="line">.post-body p a&#123;</span><br><span class="line">  color: <span class="meta">#0593d3;</span></span><br><span class="line">  border-bottom: none;</span><br><span class="line">  border-bottom: <span class="number">1</span>px solid <span class="meta">#0593d3;</span></span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    color: <span class="meta">#fc6423;</span></span><br><span class="line">    border-bottom: none;</span><br><span class="line">    border-bottom: <span class="number">1</span>px solid <span class="meta">#fc6423;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其中颜色可以自定义,在这里选中状态为橙色,链接样式为蓝色.效果如下:</p><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.7328885965600911.png" alt="img"></p><p>style.png</p><h1 id="2-修改文章底部的的标签样式"><a href="#2-修改文章底部的的标签样式" class="headerlink" title="2. 修改文章底部的的标签样式"></a>2. 修改文章底部的的标签样式</h1><p>打开模板文件<code>/themes/next/layout/_macro/post.swig</code>，找到<code>rel=&quot;tag&quot;&gt;#</code>字段，<br>将<code># 换成&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code>,其中tag是你选择标签图标的名字,也是可以自定义的,<br>如下:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel&#x3D;&quot;tag&quot;&gt; &lt;i class&#x3D;&quot;fa fa-tag&quot;&gt;&lt;&#x2F;i&gt; &#123;&#123; tag.name &#125;&#125;&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.5647113882547175.png" alt="img"></p><p>biaoq.png</p><h1 id="3-在每篇文章末尾统一添加“本文结束”标记"><a href="#3-在每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="3. 在每篇文章末尾统一添加“本文结束”标记"></a>3. 在每篇文章末尾统一添加“本文结束”标记</h1><p>效果如下:</p><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.8960303179700639.png" alt="img"></p><p>end.png</p><p>实现方法如下:</p><ol><li>在<code>\themes\next\layout\_macro</code>下新建 passage-end-tag.swig 文件,并添加以下代码：</li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% if not is_index %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;</span>-------------本文结束<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-heart"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>感谢阅读-------------<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><ol><li>打开<code>\themes\next\layout\_macro\post.swig</code>文件，在post-body 之后， post-footer （post-footer之前有两个DIV）之前添加如下代码：</li></ol><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &#123;% <span class="keyword">if</span> not is_index %&#125;</span><br><span class="line">    &#123;% <span class="keyword">include</span> <span class="string">'passage-end-tag.swig'</span> %&#125;</span><br><span class="line">  &#123;% <span class="keyword">endif</span> %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.7906940192875778.png" alt="img"></p><p>footer.png</p><ol><li>打开主题配置文件<code>_config.yml</code>在末尾添加以下字段：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文章末尾添加“本文结束”标记</span></span><br><span class="line">passage_end_tag:</span><br><span class="line">  enabled: <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>到此,就大功告成了.</p><h1 id="4-实现文章字数统计和阅读预估时间"><a href="#4-实现文章字数统计和阅读预估时间" class="headerlink" title="4.实现文章字数统计和阅读预估时间"></a>4.实现文章字数统计和阅读预估时间</h1><p>效果如下:</p><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.9235627112257534.png" alt="img"></p><p>count.png</p><p>1.在站点根目录下使用<code>GitBash</code>命令安装 <code>hexo-wordcoun</code>t插件:</p><blockquote><p>$ npm install hexo-wordcount –save</p></blockquote><p>2.在全局配置文件<code>_config.yml</code>中激活插件:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ymbols_count_time:</span><br><span class="line">    symbols: <span class="literal">true</span></span><br><span class="line">    time: <span class="literal">true</span></span><br><span class="line">    total_symbols: <span class="literal">true</span></span><br><span class="line">    total_time: <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>3.在主题的配置文件<code>_config.yml</code>中进行如下配置:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">time_minutes: true</span><br><span class="line">separated_meta: true</span><br><span class="line">item_text_post: true</span><br><span class="line">item_text_total: true</span><br><span class="line">awl: 4</span><br><span class="line">wpm: 275</span><br></pre></td></tr></table></figure><p>到此,我们就实现了文章字数统计和预估时间的显示功能</p><h1 id="5-在文章底部增加版权信息"><a href="#5-在文章底部增加版权信息" class="headerlink" title="5. 在文章底部增加版权信息"></a>5. 在文章底部增加版权信息</h1><p>效果如下:</p><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.8078661482425074.png" alt="img"></p><p>show1.png</p><p>1.在<code>next/layout/_macro/</code>下新建文件<code>my-copyright.swig</code>：<br>添加以下代码:</p><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  &#123;% <span class="keyword">if</span> page.copyright %&#125;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"my_post_copyright"</span>&gt;</span><br><span class="line">  &lt;script src=<span class="string">"//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">  &lt;!-- JS库 sweetalert 可修改路径 --&gt;</span><br><span class="line">  &lt;script src=<span class="string">"https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">  &lt;script src=<span class="string">"https://unpkg.com/sweetalert/dist/sweetalert.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">  &lt;p&gt;<span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>本文标题:<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; url_for(page.path) &#125;&#125;"</span>&gt;</span>&#123;&#123; page.title &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &lt;p&gt;<span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>文章作者:<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/"</span> <span class="attr">title</span>=<span class="string">"访问 &#123;&#123; theme.author &#125;&#125; 的个人博客"</span>&gt;</span>&#123;&#123; theme.author &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &lt;p&gt;<span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>发布时间:<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>&#123;&#123; page.date.format(<span class="string">"YYYY年MM月DD日 - HH:MM"</span>) &#125;&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">  &lt;p&gt;&lt;span&gt;最后更新:&lt;/</span>span&gt;&#123;&#123; page.updated.format(<span class="string">"YYYY年MM月DD日 - HH:MM"</span>) &#125;&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">  &lt;p&gt;&lt;span&gt;原始链接:&lt;/</span>span&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; url_for(page.path) &#125;&#125;"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; page.title &#125;&#125;"</span>&gt;</span>&#123;&#123; page.permalink &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">    &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"copy-path"</span>  title=<span class="string">"点击复制文章链接"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-clipboard"</span> <span class="attr">data-clipboard-text</span>=<span class="string">"&#123;&#123; page.permalink &#125;&#125;"</span>  <span class="attr">aria-label</span>=<span class="string">"复制成功！"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  &lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">  &lt;p&gt;&lt;span&gt;许可协议:&lt;/</span>span&gt;<span class="xml"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-creative-commons"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span> <span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">rel</span>=<span class="string">"license"</span> <span class="attr">href</span>=<span class="string">"https://creativecommons.org/licenses/by-nc-nd/4.0/"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">title</span>=<span class="string">"Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)"</span>&gt;</span>署名-非商业性使用-禁止演绎 4.0 国际<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span> 转载请保留原文链接及作者。&lt;<span class="regexp">/p&gt;  </span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">    <span class="keyword">var</span> clipboard = <span class="keyword">new</span> Clipboard(<span class="string">'.fa-clipboard'</span>);</span><br><span class="line">      $(<span class="string">".fa-clipboard"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      clipboard.on(<span class="string">'success'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        swal(&#123;   </span><br><span class="line">          title: <span class="string">""</span>,   </span><br><span class="line">          text: <span class="string">'复制成功'</span>,</span><br><span class="line">          icon: <span class="string">"success"</span>, </span><br><span class="line">          showConfirmButton: <span class="literal">true</span></span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);  </span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&#123;% endif %&#125;</span></span><br></pre></td></tr></table></figure><p>2.在<code>next/source/css/_common/components/post/</code>下新建文件<code>my-post-copyright.styl</code>：<br>添加以下代码:</p><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">.my_post_copyright &#123;</span><br><span class="line">  width: <span class="number">85</span>%;</span><br><span class="line">  max-width: <span class="number">45</span>em;</span><br><span class="line">  margin: <span class="number">2.8</span>em auto <span class="number">0</span>;</span><br><span class="line">  padding: <span class="number">0.5</span>em <span class="number">1.0</span>em;</span><br><span class="line">  border: <span class="number">1</span>px solid #d3d3d3;</span><br><span class="line">  font-size: <span class="number">0.93</span>rem;</span><br><span class="line">  line-height: <span class="number">1.6</span>em;</span><br><span class="line">  word-<span class="keyword">break</span>: <span class="keyword">break</span>-all;</span><br><span class="line">  background: rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.4</span>);</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright p&#123;margin:<span class="number">0</span>;&#125;</span><br><span class="line">.my_post_copyright span &#123;</span><br><span class="line">  display: <span class="keyword">inline</span>-block;</span><br><span class="line">  width: <span class="number">5.2</span>em;</span><br><span class="line">  color: #b5b5b5;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright .raw &#123;</span><br><span class="line">  margin-left: <span class="number">1</span>em;</span><br><span class="line">  width: <span class="number">5</span>em;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright a &#123;</span><br><span class="line">  color: #<span class="number">808080</span>;</span><br><span class="line">  border-bottom:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright a:hover &#123;</span><br><span class="line">  color: #a3d2a3;</span><br><span class="line">  text-decoration: underline;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright:hover .fa-clipboard &#123;</span><br><span class="line">  color: #<span class="number">000</span>;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright .post-url:hover &#123;</span><br><span class="line">  font-weight: normal;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright .copy-path &#123;</span><br><span class="line">  margin-left: <span class="number">1</span>em;</span><br><span class="line">  width: <span class="number">1</span>em;</span><br><span class="line">  +mobile()&#123;display:none;&#125;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright .copy-path:hover &#123;</span><br><span class="line">  color: #<span class="number">808080</span>;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol><li>打开<code>next/layout/_macro/post.swig</code>文件,添加以下代码:</li></ol><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">      &#123;% <span class="keyword">if</span> not is_index %&#125;</span><br><span class="line">        &#123;% <span class="keyword">include</span> <span class="string">'my-copyright.swig'</span> %&#125;</span><br><span class="line">      &#123;% <span class="keyword">endif</span> %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><p>添加为止如下:找到<code>wechat-subscriber</code>字段,在其字段之前加入上述代码</p><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.44975897006101295.png" alt="img"></p><p>copyright.png</p><p>4.打开<code>next/source/css/_common/components/post/post.styl</code>文件，在末尾增加代码：</p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import &quot;my-post-copyright&quot;</span><br></pre></td></tr></table></figure></blockquote><p>到此版权信息说明也就成功了.<br>说明一下,想要在文章底部显示版权信息,需要在文章头部<code>copyright: true</code>才可以正常显示</p><h1 id="6-文章加密访问"><a href="#6-文章加密访问" class="headerlink" title="6.文章加密访问"></a>6.文章加密访问</h1><p>打开<code>next\layout\_partials\head\head.swig</code>文件,插入以下代码:</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    (<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">if</span>(<span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">if</span> (prompt(<span class="string">'请输入文章密码'</span>) !== <span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</span></span><br><span class="line"><span class="actionscript">                alert(<span class="string">'密码错误！'</span>);</span></span><br><span class="line">                history.back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p>插入位置如下:</p><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.08347699981863865.png" alt="img"></p><p>base64.png</p><p>这样如果你的文章需要加密处理的话,就可以在头部写上;如:</p><p>效果如下:</p><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.8306667760013073.png" alt="img"></p><p>password.png</p><p>到此,文章解密功能就完成了.</p><h1 id="7-将博文置顶"><a href="#7-将博文置顶" class="headerlink" title="7.将博文置顶"></a>7.将博文置顶</h1><p>打开文件：<code>node_modules/hexo-generator-index/lib/generator.js</code>,将以下代码替换原来的;</p><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> pagination = <span class="built_in">require</span>(<span class="string">'hexo-pagination'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">locals</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> config = <span class="keyword">this</span>.config;</span><br><span class="line">  <span class="keyword">var</span> posts = locals.posts;</span><br><span class="line">    posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a.top &amp;&amp; b.top) &#123; <span class="comment">// 两篇文章top都有定义</span></span><br><span class="line">            <span class="keyword">if</span>(a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若top值一样则按照文章日期降序排</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; <span class="comment">// 否则按照top值降序排</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a.top &amp;&amp; !b.top) &#123; <span class="comment">// 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!a.top &amp;&amp; b.top) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></span><br><span class="line">    &#125;);</span><br><span class="line">  <span class="keyword">var</span> paginationDir = config.pagination_dir || <span class="string">'page'</span>;</span><br><span class="line">  <span class="keyword">return</span> pagination(<span class="string">''</span>, posts, &#123;</span><br><span class="line">    perPage: config.index_generator.per_page,</span><br><span class="line">    layout: [<span class="string">'index'</span>, <span class="string">'archive'</span>],</span><br><span class="line">    format: paginationDir + <span class="string">'/%d/'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">      __index: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>在文章中添加 top 值，数值越大文章越靠前，</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tag: hexo </span><br><span class="line">copyright: true</span><br><span class="line">password: 123456</span><br><span class="line">top: 150</span><br><span class="line">---</span><br></pre></td></tr></table></figure><h1 id="8-开启文章底部打赏功能"><a href="#8-开启文章底部打赏功能" class="headerlink" title="8.开启文章底部打赏功能"></a>8.开启文章底部打赏功能</h1><p>效果如下:</p><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.5246145489610459.png" alt="img"></p><p>Alipay.png</p><p>1.准备支付宝和微信二维码<br>2.在主题配置文件<code>_config.yml</code>中配置图片及信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Reward</span><br><span class="line">reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！</span><br><span class="line">wechatpay: &#x2F;images&#x2F;wechatpay.jpg</span><br><span class="line">alipay: &#x2F;images&#x2F;alipay.jpg</span><br><span class="line">#bitcoin: &#x2F;images&#x2F;bitcoin.png</span><br></pre></td></tr></table></figure><p>将对应得二维码图片路径换成自己的就可以了.<br>3.设置打赏字体不闪动<br>打开<code>next\source\css\_common\components\post\post-reward.styl</code>文件,注释以下代码即可:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/*注释文字闪动</span><br><span class="line"><span class="comment">#wechat:hover p&#123;</span></span><br><span class="line">    animation: roll 0.1s infinite linear;</span><br><span class="line">    -webkit-animation: roll 0.1s infinite linear;</span><br><span class="line">    -moz-animation: roll 0.1s infinite linear;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#alipay:hover p&#123;</span></span><br><span class="line">    animation: roll 0.1s infinite linear;</span><br><span class="line">    -webkit-animation: roll 0.1s infinite linear;</span><br><span class="line">    -moz-animation: roll 0.1s infinite linear;</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br></pre></td></tr></table></figure><p>ok,这样就完美开启了我们的打赏功能了.</p><h1 id="9-开启留言评论功能"><a href="#9-开启留言评论功能" class="headerlink" title="9.开启留言评论功能"></a>9.开启留言评论功能</h1><p>效果如下:</p><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.680280121501387.png" alt="img"></p><p>chart.png</p><blockquote><p>这里说明下,本人所使用的是搜狐的畅言开放评论,而且在本地服务器上跑时不能留言,所以只是教大家集成评论功能,之后会教大家如何使用它接收留言提醒和回复评论等.</p></blockquote><p>1.获取畅言评论的APP ID 和APP KEY<br>首先注册账号,登录成功后进入后台总览页面底部会有我们需要的<code>APP ID 和APP KEY</code><br>如下:</p><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.2131928486638761.png" alt="img"></p><p>id_key.png</p><p>2.配置畅言评论<br>打开 主题配置文件<code>_config.yml</code>,找到<code>changyan</code>字段;将刚才的id和key填入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># changyan</span></span><br><span class="line">changyan:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  appid: *********</span><br><span class="line">  appkey: *************************</span><br></pre></td></tr></table></figure><p>next本身已经集成了畅言,所以到这里我们算是成功开启了评论留言功能了.<br>重新运行下,看看效果吧;</p><p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.050999093483176994.png" alt="img"></p><p>changyan.png</p><p>由于使用畅言需要站点备案,很多朋友就放弃了,其实备案很容易,在下一篇博文我也会教大家如何破解的.<br>对的 就是这样子的,看到这样子就证明我们成功了.</p><blockquote><p>到此,我们的文章优化基本算是完成了,到目前为止我一直都是教大家在本地打造个人博客,也就是只有自己电脑上才能访问,我想很多朋友肯定已经迫不及待的想要将博客上线运营了,所以我将在下一篇终极篇教大家将站点上线托管至GitHub,SEO优化、以及发表第一篇博文等,让你开始真正拥有一个属于自己的个人站点,欢迎关注<a href="http://fatyao.top/" target="_blank" rel="noopener">darryrzhong</a>,更多干货等你来拿哟!</p></blockquote></div><div><div class="my_post_copyright"><script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script><script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script><script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><p><span>本文标题:</span><a href="/hexoblog3.html">关于Hexo6.0搭建个人博客(主题优化高级篇)</a></p><p><span>文章作者:</span><a href="/" title="访问 Yaoyao.Li 的个人博客">Yaoyao.Li</a></p><p><span>发布时间:</span>2020年01月06日 - 10:01</p><p><span>最后更新:</span>2020年01月07日 - 13:01</p><p><span>原始链接:</span><a href="/hexoblog3.html" title="关于Hexo6.0搭建个人博客(主题优化高级篇)">https://www.fatyao.top/hexoblog3.html</a><span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.fatyao.top/hexoblog3.html" aria-label="复制成功！"></i></span></p><p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p></div><script>var clipboard=new Clipboard(".fa-clipboard");$(".fa-clipboard").click(function(){clipboard.on("success",function(){swal({title:"",text:"复制成功",icon:"success",showConfirmButton:!0})})})</script></div><div><div><div style="text-align:center;color:#ccc;font-size:14px">-------------本文结束<i class="fa fa-heart"></i> 感谢阅读-------------</div></div></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>坚持原创技术分享，您的支持将鼓励我继续创作！</div> <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'> <span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Yaoyao.Li 微信支付"><p>微信支付</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/images/alipay.jpg" alt="Yaoyao.Li 支付宝"><p>支付宝</p></div></div></div></div><footer class="post-footer"><div class="post-tags"><a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/hexoblog2.html" rel="next" title="关于Hexo6.0搭建个人博客(主题优化进阶篇)"><i class="fa fa-chevron-left"></i> 关于Hexo6.0搭建个人博客(主题优化进阶篇)</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"></div></div></footer></div></article><div class="post-spread"></div></div></div><div class="comments" id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80ODE0MC8yNDYzNw=="></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Yaoyao.Li"><p class="site-author-name" itemprop="name">Yaoyao.Li</p><p class="site-description motion-element" itemprop="description">真让人头大~</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/%7C%7C%20archive"><span class="site-state-item-count">5</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <span class="site-state-item-count">3</span> <span class="site-state-item-name">分类</span></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">4</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/PerformerSpace" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a href="mailto:lyy0909@126.com@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i> E-Mail</a></span><span class="links-of-author-item"><a href="https://weibo.com/5738333560/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博"><i class="fa fa-fw fa-globe"></i> 微博</a></span><span class="links-of-author-item"><a href="https://stackoverflow.com/PerformerSpaceSOF" target="_blank" title="StackOverflow"><i class="fa fa-fw fa-stack-overflow"></i> StackOverflow</a></span><span class="links-of-author-item"><a href="https://gitee.com/performerspace" target="_blank" title="Gitee"><i class="fa fa-fw fa-globe"></i> Gitee</a></span></div><div class="links-of-blogroll motion-element links-of-blogroll-block"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-link"></i> 友情链接</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"> <a href="https://music.163.com/#/my/m/music/playlist?id=309594295" title="😆 网易云音乐 😆" target="_blank">😆 网易云音乐 😆</a></li><li class="links-of-blogroll-item"> <a href="https://www.zhihu.com/people/guai-zan-bu-sha/activities" title="😤 知乎 😤" target="_blank">😤 知乎 😤</a></li><li class="links-of-blogroll-item"> <a href="http://www.gulixueyuan.com/" title="谷粒学院😎" target="_blank">谷粒学院😎</a></li><li class="links-of-blogroll-item"> <a href="https://www.iconfont.cn/" title="alibaba矢量图库" target="_blank">alibaba矢量图库</a></li><li class="links-of-blogroll-item"> <a href="https://www.json.cn/" title="Json解析" target="_blank">Json解析</a></li><li class="links-of-blogroll-item"> <a href="http://livere.com/insight/managereply/period" title="livere" target="_blank">livere</a></li></ul></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Hexo6-0搭建个人博客-主题优化高级篇"><span class="nav-number">1.</span> <span class="nav-text">关于Hexo6.0搭建个人博客(主题优化高级篇)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-number">2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-修改文章内链接文本样式"><span class="nav-number">3.</span> <span class="nav-text">1.修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-修改文章底部的的标签样式"><span class="nav-number">4.</span> <span class="nav-text">2. 修改文章底部的的标签样式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-在每篇文章末尾统一添加“本文结束”标记"><span class="nav-number">5.</span> <span class="nav-text">3. 在每篇文章末尾统一添加“本文结束”标记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-实现文章字数统计和阅读预估时间"><span class="nav-number">6.</span> <span class="nav-text">4.实现文章字数统计和阅读预估时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-在文章底部增加版权信息"><span class="nav-number">7.</span> <span class="nav-text">5. 在文章底部增加版权信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-文章加密访问"><span class="nav-number">8.</span> <span class="nav-text">6.文章加密访问</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-将博文置顶"><span class="nav-number">9.</span> <span class="nav-text">7.将博文置顶</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-开启文章底部打赏功能"><span class="nav-number">10.</span> <span class="nav-text">8.开启文章底部打赏功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-开启留言评论功能"><span class="nav-number">11.</span> <span class="nav-text">9.开启留言评论功能</span></a></li></ol></div></div></section><div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="210" height="75" src="//music.163.com/outchain/player?type=2&id=16846091&auto=1&height=66"></iframe></div></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2020</span><span class="with-love"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder">Yaoyao.Li</span></div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span><script>var now=new Date;function createtime(){var n=new Date("12/28/2019 13:14:21");now.setTime(now.getTime()+250),days=(now-n)/1e3/60/60/24,dnum=Math.floor(days),hours=(now-n)/1e3/60/60-24*dnum,hnum=Math.floor(hours),1==String(hnum).length&&(hnum="0"+hnum),minutes=(now-n)/1e3/60-1440*dnum-60*hnum,mnum=Math.floor(minutes),1==String(mnum).length&&(mnum="0"+mnum),seconds=(now-n)/1e3-86400*dnum-3600*hnum-60*mnum,snum=Math.round(seconds),1==String(snum).length&&(snum="0"+snum),document.getElementById("timeDate").innerHTML="本站已安全运行 "+dnum+" 天 ",document.getElementById("times").innerHTML=hnum+" 小时 "+mnum+" 分 "+snum+" 秒"}setInterval("createtime()",250)</script><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人次</span><span class="site-pv"><i class="fa fa-eye"></i> 本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><script type="text/javascript">!function(e,t){var n,c=e.getElementsByTagName(t)[0];"function"!=typeof LivereTower&&((n=e.createElement(t)).src="https://cdn-city.livere.com/js/embed.dist.js",n.async=!0,c.parentNode.insertBefore(n,c))}(document,"script")</script><script type="text/javascript">
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hexo," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yaoyao的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="关于Hexo6.0搭建个人博客(主题优化高级篇) 本篇博文将继续带大家深入文章效果优化,教你打造炫酷的个人博客站点.  阅读本文前建议先行阅读本人另外两篇遍基础博文1.关于Hexo6.0搭建个人博客(基础篇)2.关于Hexo6.0搭建个人博客(进阶篇) 目录 优化博客文章样式 修改文章内链接文本样式 修改文章底部的的标签样式 在每篇文章末尾统一添加“本文结束”标记 实现文章字数统计和阅读预估时间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Hexo6.0搭建个人博客(主题优化高级篇)">
+<meta property="og:url" content="https://www.fatyao.top/hexoblog3.html">
+<meta property="og:site_name" content="Yaoyao的博客">
+<meta property="og:description" content="关于Hexo6.0搭建个人博客(主题优化高级篇) 本篇博文将继续带大家深入文章效果优化,教你打造炫酷的个人博客站点.  阅读本文前建议先行阅读本人另外两篇遍基础博文1.关于Hexo6.0搭建个人博客(基础篇)2.关于Hexo6.0搭建个人博客(进阶篇) 目录 优化博客文章样式 修改文章内链接文本样式 修改文章底部的的标签样式 在每篇文章末尾统一添加“本文结束”标记 实现文章字数统计和阅读预估时间">
+<meta property="og:image" content="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/timg%20%285%29.jpg">
+<meta property="article:published_time" content="2020-01-06T02:20:13.000Z">
+<meta property="article:modified_time" content="2020-01-07T05:47:14.551Z">
+<meta property="article:author" content="Yaoyao.Li">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/timg%20%285%29.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.fatyao.top/hexoblog3.html"/>
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>关于Hexo6.0搭建个人博客(主题优化高级篇) | Yaoyao的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yaoyao的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">山不过来 | 我就过去</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photo">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            摄影
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-welfare">
+          <a href="/welfare/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br />
+            
+            福利
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book">
+          <a href="/book/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.fatyao.top/hexoblog3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yaoyao.Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yaoyao的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于Hexo6.0搭建个人博客(主题优化高级篇)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-06T10:20:13+08:00">
+                2020-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/timg%20%285%29.jpg" rel="gallery_ckexwqqa5000ocovrgoke9ugr"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/timg%20%285%29.jpg" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h1 id="关于Hexo6-0搭建个人博客-主题优化高级篇"><a href="#关于Hexo6-0搭建个人博客-主题优化高级篇" class="headerlink" title="关于Hexo6.0搭建个人博客(主题优化高级篇)"></a>关于Hexo6.0搭建个人博客(主题优化高级篇)</h1><blockquote>
+<p>本篇博文将继续带大家深入文章效果优化,教你打造炫酷的个人博客站点.</p>
+</blockquote>
+<p>阅读本文前建议先行阅读本人另外两篇遍基础博文<br>1.<a href="http://www.fatyao.top/hexoblog1.html">关于Hexo6.0搭建个人博客(基础篇)</a><br>2.<a href="http://www.fatyao.top/hexoblog2.html">关于Hexo6.0搭建个人博客(进阶篇)</a></p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>优化博客文章样式<ul>
+<li>修改文章内链接文本样式</li>
+<li>修改文章底部的的标签样式</li>
+<li>在每篇文章末尾统一添加“本文结束”标记</li>
+<li>实现文章字数统计和阅读预估时间</li>
+<li>在文章底部增加版权信息</li>
+<li>文章加密访问</li>
+<li>将博文置顶</li>
+<li>开启文章底部打赏功能</li>
+<li>开启留言评论功能</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-修改文章内链接文本样式"><a href="#1-修改文章内链接文本样式" class="headerlink" title="1.修改文章内链接文本样式"></a>1.修改文章内链接文本样式</h1><p>打开文件<code>themes\next\source\css\_common\components\post\post.styl</code>，在末尾添加以下css样式:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文章内链接文本样式</span></span><br><span class="line">.post-body p a&#123;</span><br><span class="line">  color: <span class="meta">#0593d3;</span></span><br><span class="line">  border-bottom: none;</span><br><span class="line">  border-bottom: <span class="number">1</span>px solid <span class="meta">#0593d3;</span></span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    color: <span class="meta">#fc6423;</span></span><br><span class="line">    border-bottom: none;</span><br><span class="line">    border-bottom: <span class="number">1</span>px solid <span class="meta">#fc6423;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中颜色可以自定义,在这里选中状态为橙色,链接样式为蓝色.效果如下:</p>
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.7328885965600911.png" alt="img"></p>
+<p>style.png</p>
+<h1 id="2-修改文章底部的的标签样式"><a href="#2-修改文章底部的的标签样式" class="headerlink" title="2. 修改文章底部的的标签样式"></a>2. 修改文章底部的的标签样式</h1><p>打开模板文件<code>/themes/next/layout/_macro/post.swig</code>，找到<code>rel=&quot;tag&quot;&gt;#</code>字段，<br>将<code># 换成&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code>,其中tag是你选择标签图标的名字,也是可以自定义的,<br>如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel&#x3D;&quot;tag&quot;&gt; &lt;i class&#x3D;&quot;fa fa-tag&quot;&gt;&lt;&#x2F;i&gt; &#123;&#123; tag.name &#125;&#125;&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.5647113882547175.png" alt="img"></p>
+<p>biaoq.png</p>
+<h1 id="3-在每篇文章末尾统一添加“本文结束”标记"><a href="#3-在每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="3. 在每篇文章末尾统一添加“本文结束”标记"></a>3. 在每篇文章末尾统一添加“本文结束”标记</h1><p>效果如下:</p>
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.8960303179700639.png" alt="img"></p>
+<p>end.png</p>
+<p>实现方法如下:</p>
+<ol>
+<li>在<code>\themes\next\layout\_macro</code>下新建 passage-end-tag.swig 文件,并添加以下代码：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% if not is_index %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;</span>-------------本文结束<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-heart"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>感谢阅读-------------<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>打开<code>\themes\next\layout\_macro\post.swig</code>文件，在post-body 之后， post-footer （post-footer之前有两个DIV）之前添加如下代码：</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &#123;% <span class="keyword">if</span> not is_index %&#125;</span><br><span class="line">    &#123;% <span class="keyword">include</span> <span class="string">'passage-end-tag.swig'</span> %&#125;</span><br><span class="line">  &#123;% <span class="keyword">endif</span> %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.7906940192875778.png" alt="img"></p>
+<p>footer.png</p>
+<ol>
+<li>打开主题配置文件<code>_config.yml</code>在末尾添加以下字段：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文章末尾添加“本文结束”标记</span></span><br><span class="line">passage_end_tag:</span><br><span class="line">  enabled: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>到此,就大功告成了.</p>
+<h1 id="4-实现文章字数统计和阅读预估时间"><a href="#4-实现文章字数统计和阅读预估时间" class="headerlink" title="4.实现文章字数统计和阅读预估时间"></a>4.实现文章字数统计和阅读预估时间</h1><p>效果如下:</p>
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.9235627112257534.png" alt="img"></p>
+<p>count.png</p>
+<p>1.在站点根目录下使用<code>GitBash</code>命令安装 <code>hexo-wordcoun</code>t插件:</p>
+<blockquote>
+<p>$ npm install hexo-wordcount –save</p>
+</blockquote>
+<p>2.在全局配置文件<code>_config.yml</code>中激活插件:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ymbols_count_time:</span><br><span class="line">    symbols: <span class="literal">true</span></span><br><span class="line">    time: <span class="literal">true</span></span><br><span class="line">    total_symbols: <span class="literal">true</span></span><br><span class="line">    total_time: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>3.在主题的配置文件<code>_config.yml</code>中进行如下配置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">time_minutes: true</span><br><span class="line">separated_meta: true</span><br><span class="line">item_text_post: true</span><br><span class="line">item_text_total: true</span><br><span class="line">awl: 4</span><br><span class="line">wpm: 275</span><br></pre></td></tr></table></figure>
+
+<p>到此,我们就实现了文章字数统计和预估时间的显示功能</p>
+<h1 id="5-在文章底部增加版权信息"><a href="#5-在文章底部增加版权信息" class="headerlink" title="5. 在文章底部增加版权信息"></a>5. 在文章底部增加版权信息</h1><p>效果如下:</p>
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.8078661482425074.png" alt="img"></p>
+<p>show1.png</p>
+<p>1.在<code>next/layout/_macro/</code>下新建文件<code>my-copyright.swig</code>：<br>添加以下代码:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  &#123;% <span class="keyword">if</span> page.copyright %&#125;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"my_post_copyright"</span>&gt;</span><br><span class="line">  &lt;script src=<span class="string">"//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">  &lt;!-- JS库 sweetalert 可修改路径 --&gt;</span><br><span class="line">  &lt;script src=<span class="string">"https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">  &lt;script src=<span class="string">"https://unpkg.com/sweetalert/dist/sweetalert.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">  &lt;p&gt;<span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>本文标题:<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; url_for(page.path) &#125;&#125;"</span>&gt;</span>&#123;&#123; page.title &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &lt;p&gt;<span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>文章作者:<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/"</span> <span class="attr">title</span>=<span class="string">"访问 &#123;&#123; theme.author &#125;&#125; 的个人博客"</span>&gt;</span>&#123;&#123; theme.author &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &lt;p&gt;<span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>发布时间:<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>&#123;&#123; page.date.format(<span class="string">"YYYY年MM月DD日 - HH:MM"</span>) &#125;&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">  &lt;p&gt;&lt;span&gt;最后更新:&lt;/</span>span&gt;&#123;&#123; page.updated.format(<span class="string">"YYYY年MM月DD日 - HH:MM"</span>) &#125;&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">  &lt;p&gt;&lt;span&gt;原始链接:&lt;/</span>span&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; url_for(page.path) &#125;&#125;"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; page.title &#125;&#125;"</span>&gt;</span>&#123;&#123; page.permalink &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">    &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"copy-path"</span>  title=<span class="string">"点击复制文章链接"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-clipboard"</span> <span class="attr">data-clipboard-text</span>=<span class="string">"&#123;&#123; page.permalink &#125;&#125;"</span>  <span class="attr">aria-label</span>=<span class="string">"复制成功！"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  &lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">  &lt;p&gt;&lt;span&gt;许可协议:&lt;/</span>span&gt;<span class="xml"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-creative-commons"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span> <span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">rel</span>=<span class="string">"license"</span> <span class="attr">href</span>=<span class="string">"https://creativecommons.org/licenses/by-nc-nd/4.0/"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">title</span>=<span class="string">"Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)"</span>&gt;</span>署名-非商业性使用-禁止演绎 4.0 国际<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span> 转载请保留原文链接及作者。&lt;<span class="regexp">/p&gt;  </span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">    <span class="keyword">var</span> clipboard = <span class="keyword">new</span> Clipboard(<span class="string">'.fa-clipboard'</span>);</span><br><span class="line">      $(<span class="string">".fa-clipboard"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      clipboard.on(<span class="string">'success'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        swal(&#123;   </span><br><span class="line">          title: <span class="string">""</span>,   </span><br><span class="line">          text: <span class="string">'复制成功'</span>,</span><br><span class="line">          icon: <span class="string">"success"</span>, </span><br><span class="line">          showConfirmButton: <span class="literal">true</span></span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);  </span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&#123;% endif %&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.在<code>next/source/css/_common/components/post/</code>下新建文件<code>my-post-copyright.styl</code>：<br>添加以下代码:</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">.my_post_copyright &#123;</span><br><span class="line">  width: <span class="number">85</span>%;</span><br><span class="line">  max-width: <span class="number">45</span>em;</span><br><span class="line">  margin: <span class="number">2.8</span>em auto <span class="number">0</span>;</span><br><span class="line">  padding: <span class="number">0.5</span>em <span class="number">1.0</span>em;</span><br><span class="line">  border: <span class="number">1</span>px solid #d3d3d3;</span><br><span class="line">  font-size: <span class="number">0.93</span>rem;</span><br><span class="line">  line-height: <span class="number">1.6</span>em;</span><br><span class="line">  word-<span class="keyword">break</span>: <span class="keyword">break</span>-all;</span><br><span class="line">  background: rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.4</span>);</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright p&#123;margin:<span class="number">0</span>;&#125;</span><br><span class="line">.my_post_copyright span &#123;</span><br><span class="line">  display: <span class="keyword">inline</span>-block;</span><br><span class="line">  width: <span class="number">5.2</span>em;</span><br><span class="line">  color: #b5b5b5;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright .raw &#123;</span><br><span class="line">  margin-left: <span class="number">1</span>em;</span><br><span class="line">  width: <span class="number">5</span>em;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright a &#123;</span><br><span class="line">  color: #<span class="number">808080</span>;</span><br><span class="line">  border-bottom:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright a:hover &#123;</span><br><span class="line">  color: #a3d2a3;</span><br><span class="line">  text-decoration: underline;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright:hover .fa-clipboard &#123;</span><br><span class="line">  color: #<span class="number">000</span>;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright .post-url:hover &#123;</span><br><span class="line">  font-weight: normal;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright .copy-path &#123;</span><br><span class="line">  margin-left: <span class="number">1</span>em;</span><br><span class="line">  width: <span class="number">1</span>em;</span><br><span class="line">  +mobile()&#123;display:none;&#125;</span><br><span class="line">&#125;</span><br><span class="line">.my_post_copyright .copy-path:hover &#123;</span><br><span class="line">  color: #<span class="number">808080</span>;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>打开<code>next/layout/_macro/post.swig</code>文件,添加以下代码:</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">      &#123;% <span class="keyword">if</span> not is_index %&#125;</span><br><span class="line">        &#123;% <span class="keyword">include</span> <span class="string">'my-copyright.swig'</span> %&#125;</span><br><span class="line">      &#123;% <span class="keyword">endif</span> %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>添加为止如下:找到<code>wechat-subscriber</code>字段,在其字段之前加入上述代码</p>
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.44975897006101295.png" alt="img"></p>
+<p>copyright.png</p>
+<p>4.打开<code>next/source/css/_common/components/post/post.styl</code>文件，在末尾增加代码：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import &quot;my-post-copyright&quot;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>到此版权信息说明也就成功了.<br>说明一下,想要在文章底部显示版权信息,需要在文章头部<code>copyright: true</code>才可以正常显示</p>
+<h1 id="6-文章加密访问"><a href="#6-文章加密访问" class="headerlink" title="6.文章加密访问"></a>6.文章加密访问</h1><p>打开<code>next\layout\_partials\head\head.swig</code>文件,插入以下代码:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    (<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">if</span>(<span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">if</span> (prompt(<span class="string">'请输入文章密码'</span>) !== <span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</span></span><br><span class="line"><span class="actionscript">                alert(<span class="string">'密码错误！'</span>);</span></span><br><span class="line">                history.back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>插入位置如下:</p>
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.08347699981863865.png" alt="img"></p>
+<p>base64.png</p>
+<p>这样如果你的文章需要加密处理的话,就可以在头部写上;如:</p>
+<p>效果如下:</p>
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.8306667760013073.png" alt="img"></p>
+<p>password.png</p>
+<p>到此,文章解密功能就完成了.</p>
+<h1 id="7-将博文置顶"><a href="#7-将博文置顶" class="headerlink" title="7.将博文置顶"></a>7.将博文置顶</h1><p>打开文件：<code>node_modules/hexo-generator-index/lib/generator.js</code>,将以下代码替换原来的;</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> pagination = <span class="built_in">require</span>(<span class="string">'hexo-pagination'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">locals</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> config = <span class="keyword">this</span>.config;</span><br><span class="line">  <span class="keyword">var</span> posts = locals.posts;</span><br><span class="line">    posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a.top &amp;&amp; b.top) &#123; <span class="comment">// 两篇文章top都有定义</span></span><br><span class="line">            <span class="keyword">if</span>(a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若top值一样则按照文章日期降序排</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; <span class="comment">// 否则按照top值降序排</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a.top &amp;&amp; !b.top) &#123; <span class="comment">// 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!a.top &amp;&amp; b.top) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></span><br><span class="line">    &#125;);</span><br><span class="line">  <span class="keyword">var</span> paginationDir = config.pagination_dir || <span class="string">'page'</span>;</span><br><span class="line">  <span class="keyword">return</span> pagination(<span class="string">''</span>, posts, &#123;</span><br><span class="line">    perPage: config.index_generator.per_page,</span><br><span class="line">    layout: [<span class="string">'index'</span>, <span class="string">'archive'</span>],</span><br><span class="line">    format: paginationDir + <span class="string">'/%d/'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">      __index: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在文章中添加 top 值，数值越大文章越靠前，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tag: hexo </span><br><span class="line">copyright: true</span><br><span class="line">password: 123456</span><br><span class="line">top: 150</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h1 id="8-开启文章底部打赏功能"><a href="#8-开启文章底部打赏功能" class="headerlink" title="8.开启文章底部打赏功能"></a>8.开启文章底部打赏功能</h1><p>效果如下:</p>
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.5246145489610459.png" alt="img"></p>
+<p>Alipay.png</p>
+<p>1.准备支付宝和微信二维码<br>2.在主题配置文件<code>_config.yml</code>中配置图片及信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Reward</span><br><span class="line">reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！</span><br><span class="line">wechatpay: &#x2F;images&#x2F;wechatpay.jpg</span><br><span class="line">alipay: &#x2F;images&#x2F;alipay.jpg</span><br><span class="line">#bitcoin: &#x2F;images&#x2F;bitcoin.png</span><br></pre></td></tr></table></figure>
+
+<p>将对应得二维码图片路径换成自己的就可以了.<br>3.设置打赏字体不闪动<br>打开<code>next\source\css\_common\components\post\post-reward.styl</code>文件,注释以下代码即可:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/*注释文字闪动</span><br><span class="line"><span class="comment">#wechat:hover p&#123;</span></span><br><span class="line">    animation: roll 0.1s infinite linear;</span><br><span class="line">    -webkit-animation: roll 0.1s infinite linear;</span><br><span class="line">    -moz-animation: roll 0.1s infinite linear;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#alipay:hover p&#123;</span></span><br><span class="line">    animation: roll 0.1s infinite linear;</span><br><span class="line">    -webkit-animation: roll 0.1s infinite linear;</span><br><span class="line">    -moz-animation: roll 0.1s infinite linear;</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<p>ok,这样就完美开启了我们的打赏功能了.</p>
+<h1 id="9-开启留言评论功能"><a href="#9-开启留言评论功能" class="headerlink" title="9.开启留言评论功能"></a>9.开启留言评论功能</h1><p>效果如下:</p>
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.680280121501387.png" alt="img"></p>
+<p>chart.png</p>
+<blockquote>
+<p>这里说明下,本人所使用的是搜狐的畅言开放评论,而且在本地服务器上跑时不能留言,所以只是教大家集成评论功能,之后会教大家如何使用它接收留言提醒和回复评论等.</p>
+</blockquote>
+<p>1.获取畅言评论的APP ID 和APP KEY<br>首先注册账号,登录成功后进入后台总览页面底部会有我们需要的<code>APP ID 和APP KEY</code><br>如下:</p>
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.2131928486638761.png" alt="img"></p>
+<p>id_key.png</p>
+<p>2.配置畅言评论<br>打开 主题配置文件<code>_config.yml</code>,找到<code>changyan</code>字段;将刚才的id和key填入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># changyan</span></span><br><span class="line">changyan:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  appid: *********</span><br><span class="line">  appkey: *************************</span><br></pre></td></tr></table></figure>
+
+<p>next本身已经集成了畅言,所以到这里我们算是成功开启了评论留言功能了.<br>重新运行下,看看效果吧;</p>
+<p><img src="https://yaoyao-blog.oss-cn-beijing.aliyuncs.com/photo/hexoblog3/0.050999093483176994.png" alt="img"></p>
+<p>changyan.png</p>
+<p>由于使用畅言需要站点备案,很多朋友就放弃了,其实备案很容易,在下一篇博文我也会教大家如何破解的.<br>对的 就是这样子的,看到这样子就证明我们成功了.</p>
+<blockquote>
+<p>到此,我们的文章优化基本算是完成了,到目前为止我一直都是教大家在本地打造个人博客,也就是只有自己电脑上才能访问,我想很多朋友肯定已经迫不及待的想要将博客上线运营了,所以我将在下一篇终极篇教大家将站点上线托管至GitHub,SEO优化、以及发表第一篇博文等,让你开始真正拥有一个属于自己的个人站点,欢迎关注<a href="http://fatyao.top/" target="_blank" rel="noopener">darryrzhong</a>,更多干货等你来拿哟!</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+             
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/hexoblog3.html">关于Hexo6.0搭建个人博客(主题优化高级篇)</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Yaoyao.Li 的个人博客">Yaoyao.Li</a></p>
+  <p><span>发布时间:</span>2020年01月06日 - 10:01</p>
+  <p><span>最后更新:</span>2020年01月07日 - 13:01</p>
+  <p><span>原始链接:</span><a href="/hexoblog3.html" title="关于Hexo6.0搭建个人博客(主题优化高级篇)">https://www.fatyao.top/hexoblog3.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.fatyao.top/hexoblog3.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+        });
+    });
+</script>
+
+
+          
+    </div>
+
+    
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Yaoyao.Li 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Yaoyao.Li 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hexoblog2.html" rel="next" title="关于Hexo6.0搭建个人博客(主题优化进阶篇)">
+                <i class="fa fa-chevron-left"></i> 关于Hexo6.0搭建个人博客(主题优化进阶篇)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80ODE0MC8yNDYzNw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Yaoyao.Li" />
+            
+              <p class="site-author-name" itemprop="name">Yaoyao.Li</p>
+              <p class="site-description motion-element" itemprop="description">真让人头大~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/PerformerSpace" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lyy0909@126.com@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/5738333560/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/PerformerSpaceSOF" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/performerspace" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://music.163.com/#/my/m/music/playlist?id=309594295" title="😆 网易云音乐 😆" target="_blank">😆 网易云音乐 😆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zhihu.com/people/guai-zan-bu-sha/activities" title="😤 知乎 😤" target="_blank">😤 知乎 😤</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.gulixueyuan.com/" title="谷粒学院😎" target="_blank">谷粒学院😎</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.iconfont.cn/" title="alibaba矢量图库" target="_blank">alibaba矢量图库</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.json.cn/" title="Json解析" target="_blank">Json解析</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://livere.com/insight/managereply/period" title="livere" target="_blank">livere</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Hexo6-0搭建个人博客-主题优化高级篇"><span class="nav-number">1.</span> <span class="nav-text">关于Hexo6.0搭建个人博客(主题优化高级篇)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-number">2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-修改文章内链接文本样式"><span class="nav-number">3.</span> <span class="nav-text">1.修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-修改文章底部的的标签样式"><span class="nav-number">4.</span> <span class="nav-text">2. 修改文章底部的的标签样式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-在每篇文章末尾统一添加“本文结束”标记"><span class="nav-number">5.</span> <span class="nav-text">3. 在每篇文章末尾统一添加“本文结束”标记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-实现文章字数统计和阅读预估时间"><span class="nav-number">6.</span> <span class="nav-text">4.实现文章字数统计和阅读预估时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-在文章底部增加版权信息"><span class="nav-number">7.</span> <span class="nav-text">5. 在文章底部增加版权信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-文章加密访问"><span class="nav-number">8.</span> <span class="nav-text">6.文章加密访问</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-将博文置顶"><span class="nav-number">9.</span> <span class="nav-text">7.将博文置顶</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-开启文章底部打赏功能"><span class="nav-number">10.</span> <span class="nav-text">8.开启文章底部打赏功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-开启留言评论功能"><span class="nav-number">11.</span> <span class="nav-text">9.开启留言评论功能</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+      
+                           <div>
+                              <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="210" height="75" src="//music.163.com/outchain/player?type=2&id=16846091&auto=1&height=66"></iframe>
+                           </div>
+                
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yaoyao.Li</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+-->
+
+
+
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("12/28/2019 13:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -313,4 +1540,42 @@
         onPopupClose();
       }
     });
-  </script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script type="text/javascript" src="/js/src/clicklove.js"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/koharu.model.json"},display:{position:"right",width:200,height:400},mobile:{show:!1},log:!1})</script></body></html>
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+</html>
